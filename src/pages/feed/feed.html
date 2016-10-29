@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Github Viewer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+    <div *ngFor="let item of repos">
+      <ion-card (tap)="pushPage(item)" >
+        <ion-item>
+          <h2>{{item.name}}</h2>
+          <div class="info">
+            <span class="info__lng">{{item.language}}</span>
+            <ion-icon name="star" class="info__stars"> {{item.stargazers_count}}</ion-icon>
+            <ion-icon name="git-branch" class="info__fork"> {{item.forks_count}}</ion-icon>
+          </div>
+        </ion-item>
+      </ion-card>
+    </div>
+	</ion-list>
+
+</ion-content>

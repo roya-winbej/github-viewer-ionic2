@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Interesting
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let lng of languageList" (click)="goToList(lng)">
+      {{lng}}
+    </ion-item>
+  </ion-list>
+</ion-content>

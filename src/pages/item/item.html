@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="blog-card">
+    <div class="photo" [ngStyle]="{'background-image': 'url(' + item.owner.avatar_url + ')'}"></div>
+    <div class="description">
+      <h1>{{item.name}}</h1>
+      <p class="summary">{{item.description}}</p>
+    </div>
+    <div class="bar">
+      <span class="lng">{{item.language}}</span>
+      <div class="info">
+        <span class="stars"><i class="fa fa-star"></i> {{item.stargazers_count}}</span>
+        <span class="forks"><i class="fa fa-code-fork"></i> {{item.forks_count}}</span>
+      </div>
+
+      <a href="{{item.html_url}}" class="link">Open in Github</a>
+    </div>
+  </div>
+
+</ion-content>
