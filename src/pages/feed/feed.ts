@@ -13,6 +13,7 @@ export class FeedPage {
 
   repos: Repo[];
   private loader;
+  public lostConnection: boolean = false;
 
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController,
@@ -30,9 +31,24 @@ export class FeedPage {
     });
   }
 
+  refresher(refresher): void {
+
+    if (!this.isInternet.isInternetConnection()) {
+      this.lostConnection = true;
+      refresher.complete();
+      return;
+    }
+
+    this.reposService.getRepos('angular').subscribe(repos => {
+      this.repos = repos;
+      refresher.complete();
+      this.lostConnection = false;
+    });
+  }
+
   ngOnInit(): void {
 
-    if (!this.isInternet.isInternetConnection()) {return;}
+    if (!this.isInternet.isInternetConnection()) { this.lostConnection = true; return;}
 
     this.loader.present();
     this.getRepos();

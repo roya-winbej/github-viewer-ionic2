@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AlertController} from "ionic-angular";
+import {AlertController, Platform} from "ionic-angular";
 
 declare var navigator: any;
 declare var Connection: any;
@@ -7,9 +7,10 @@ declare var Connection: any;
 @Injectable()
 export class IsInternetService {
 
-  constructor(private alertCtrl: AlertController) {
+  private platform;
 
-
+  constructor(private alertCtrl: AlertController, platform: Platform) {
+    this.platform = platform;
   }
 
   private alertCreator(): void {
@@ -27,6 +28,10 @@ export class IsInternetService {
   }
 
   public isInternetConnection(): boolean {
+
+    // if (this.platform.is('core')) {
+    //   return true;
+    // }
 
     var networkState = navigator.connection.type;
 

@@ -10,8 +10,6 @@ page-item {
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
   $green: #75D13B;
   $grey: #e9e9e9;
-  @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
-
 
   @mixin bgImg($url) {
     background: url($url) center no-repeat;
