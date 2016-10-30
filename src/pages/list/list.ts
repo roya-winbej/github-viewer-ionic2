@@ -52,7 +52,7 @@ export class List {
       return;
     }
 
-    this.reposService.getRepos('angular').subscribe(repos => {
+    this.reposService.getRepos(this.provider).subscribe(repos => {
       this.repos = repos;
       refresher.complete();
       this.lostConnection = false;
